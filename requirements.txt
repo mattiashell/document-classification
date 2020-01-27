@@ -1,0 +1,6 @@
+Flask==1.1.1
+Flask-RESTful==0.3.7
+pickleshare==0.7.5
+scikit-learn==0.20.3
+
+-e git://github.com/hensing/PyDDE.git#egg=PyDDE
