@@ -3,8 +3,16 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.svm import LinearSVC
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.naive_bayes import GaussianNB
+from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix, accuracy_score
+from sklearn import model_selection
+import numpy as np
 import pickle
 
 import pandas as pd
@@ -18,10 +26,6 @@ def train_model(data_file = "shuffled-full-set-hashed.csv"):
     df.dropna(axis=0, how='any', inplace=True)
 
 
-    ########### FOR LOCAL PERFORMANCE ISSUES ######
-    df1 = df
-    df = df.sample(n=1000)
-
 
 
 
@@ -29,7 +33,7 @@ def train_model(data_file = "shuffled-full-set-hashed.csv"):
     # Could use Undersampling or oversampling - https://en.wikipedia.org/wiki/Oversampling_and_undersampling_in_data_analysis
 
     # Divide data into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(df['Data'], df['Label'], random_state = 0)
+    X_train, X_test, y_train, y_test = train_test_split(df['Data'], df['Label'], random_state = 12)
 
 
     # Vectorization using bag of words model
@@ -65,7 +69,7 @@ def train_model(data_file = "shuffled-full-set-hashed.csv"):
     accuracy = accuracy_score(y_test, y_pred)
     print(conf_mat)
     print("Accuracy_score = ", accuracy)
+    return accuracy
 
-#    print(model.predict(count_vect.transform([df1["Data"].at[0]]))[0])
 
-
+train_model()
