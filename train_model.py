@@ -48,7 +48,7 @@ def train_model(data_file = "shuffled-full-set-hashed.csv"):
 
     # Save the vocabulary
     dictionary_filepath = "vocabulary.sav"
-    pickle.dump(vect.vocabulary_, open(dictionary_filepath, 'wb'))
+    pickle.dump(vect.vocabulary_, open(dictionary_filepath, 'wb'), protocol=2)
 
 
     # Train Model
@@ -57,7 +57,7 @@ def train_model(data_file = "shuffled-full-set-hashed.csv"):
 
     # Save Model
     model_filename = "trained_model.sav"
-    pickle.dump(model, open(model_filename, 'wb'))
+    pickle.dump(model, open(model_filename, 'wb'), protocol=2)
 
 
     # Test Model

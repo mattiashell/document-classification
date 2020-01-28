@@ -5,7 +5,6 @@ import pandas as pd
 def test_prediction(test_content, expected=None):
 
 
-
     address = 'http://ec2-3-135-82-244.us-east-2.compute.amazonaws.com'
     port = 5000
 
