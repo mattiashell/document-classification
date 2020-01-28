@@ -23,3 +23,9 @@ You can individually test a file content with the following command:
 python3 test.py <file_content> <expected_label>
 ```
 *The expected_label parameter is optional. If given, the function will return a boolean whether the predicted label matched the expected label.*
+
+## API
+Here is an example of how to access the API
+```
+http://ec2-3-135-82-244.us-east-2.compute.amazonaws.com:5000/classifier/<document_text>
+```
